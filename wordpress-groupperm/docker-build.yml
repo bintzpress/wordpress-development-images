@@ -1,0 +1,31 @@
+#
+# Builds the wordpress-groupperm images for wordpress 5.8.2 and beta-5.9-RC2
+#
+version: "1.0"
+
+images:
+  wordpress-groupperm-5-8-2:
+    build:
+      tag: wordpress-development:wordpress-groupperm-5.8.2
+      context: ./context
+      args:
+        WORDPRESS_TAG: ${WORDPRESS_LATEST}
+    push:
+      docker-hub:
+        repository: ${OWNER}
+
+  wordpress-beta-5-9-rc2:
+    pull: wordpress:${WORDPRESS_BETA}
+
+  wordpress-groupperm-beta-5-9-rc2:
+    build:
+      tag: wordpress-development:wordpress-groupperm-beta-5.9-rc2
+      context: ${CONTEXT}
+      args: 
+        WORDPRESS_TAG: ${WORDPRESS_BETA}
+    push:
+      docker-hub:
+        repository: ${OWNER}
+
+registries:
+  docker-hub:

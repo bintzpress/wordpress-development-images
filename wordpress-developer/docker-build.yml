@@ -1,0 +1,19 @@
+#
+# This build the wordpress-developer image
+#
+version: "1.0"
+
+images:
+  wordpress_developer:
+    build:
+      tag: wordpress-development:wordpress-developer-1.0.0
+      context: ${CONTEXT}
+      args: 
+        UBUNTU_TAG: latest
+    push:
+      docker-hub:
+        repository: ${OWNER}
+
+registries:
+  docker-hub:
+  
