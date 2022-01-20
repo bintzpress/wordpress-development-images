@@ -61,8 +61,11 @@ COPY bin/developer_setup.sh /home/developer/
 RUN chown developer:developer /home/developer/developer_setup.sh && \
     chmod 770 /home/developer/developer_setup.sh && \
     su - developer -c "/home/developer/developer_setup.sh" && \
-    rm /home/developer/developer_setup.sh
-    
+    rm /home/developer/developer_setup.sh && \
+    mkdir /home/developer/projects && \
+    chown developer:developer /home/developer/projects && \
+    chmod 755 /home/developer/projects
+
 COPY bin/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod a+rx /usr/local/bin/entrypoint.sh
 
