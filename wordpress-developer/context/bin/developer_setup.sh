@@ -21,7 +21,7 @@ chmod ug+x install.sh
 /home/developer/install.sh
 [ -s /home/developer/.nvm/nvm.sh ]
 . /home/developer/.nvm/nvm.sh
-nvm install lts/dubnium
+nvm install lts/gallium
 npm install --global grunt-cli
 npm install --global grunt-init
 npm install --global jshint
